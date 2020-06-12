@@ -17,9 +17,18 @@
 
 <body>
   <script src="js/three.js"></script>
+  <script src="https://unpkg.com/three@0.85.0/examples/js/controls/OrbitControls.js"></script>
   <script>
     var scene = new THREE.Scene();
+    
+    // 座標軸を表示
+    var axes = new THREE.AxisHelper(25);
+    scene.add(axes);
+
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    // コントローラーを追加
+    var controls = new THREE.OrbitControls(camera);
 
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -35,8 +44,8 @@
       requestAnimationFrame(animate);
       renderer.render(scene, camera);
 
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
+      // cube.rotation.x += 0.01;
+      // cube.rotation.y += 0.01;
     }
     animate();
   </script>
